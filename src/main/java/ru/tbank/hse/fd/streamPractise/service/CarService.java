@@ -76,10 +76,10 @@ public class CarService {
      * Необходимо вернуть список имён всех владельцев
      * Имена не должны повторяться
      */
-    public List<List<Owner>> getOwnersCarsNames(List<Car> cars) {
+    public List<String> getOwnersCarsNames(List<Car> cars) {
         return cars
                 .stream()
-                .map(car -> car.getOwners().stream().distinct().toList())
+                .map(car -> car.getOwners().stream().toString())
                 .distinct()
                 .toList();
     }
@@ -160,7 +160,8 @@ public class CarService {
                 .flatMap(car -> car.getOwners().stream())
                 .filter(owner -> owner.getAge() > 36)
                 .findFirst()
-                .orElse(null);}
+                .orElse(null);
+    }
 }
 
 
