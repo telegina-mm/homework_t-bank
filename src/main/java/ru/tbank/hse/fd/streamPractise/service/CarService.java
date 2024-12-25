@@ -21,8 +21,7 @@ public class CarService {
      * Необходимо вернуть список строк из Condition
      */
     public List<String> getConditions(List<Car> cars) {
-        return cars
-                .stream()
+        return cars.stream()
                 .map(car -> car.getCondition().getText())
                 .toList();
     }
@@ -159,8 +158,6 @@ public class CarService {
         return  cars.stream()
                 .flatMap(car -> car.getOwners().stream())
                 .filter(owner -> owner.getAge() > 36)
-                .findFirst()
-                .orElse(null);}
+                .findFirst();
+    }
 }
-
-
